@@ -46,10 +46,11 @@ import org.bouncycastle.openssl.jcajce.JcePEMDecryptorProviderBuilder;
  */
 public class X509Utilities {
 
-    public static final String BEGIN_CERT = "-----BEGIN CERTIFICATE-----\n";
-    public static final String END_CERT   = "-----END CERTIFICATE-----";
-    public static final String BEGIN_KEY  = "-----BEGIN RSA PRIVATE KEY-----\n";
-    public static final String END_KEY    = "-----END RSA PRIVATE KEY-----";
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    public static final String BEGIN_CERT     = "-----BEGIN CERTIFICATE-----" + LINE_SEPARATOR;
+    public static final String END_CERT       = "-----END CERTIFICATE-----";
+    public static final String BEGIN_KEY      = "-----BEGIN RSA PRIVATE KEY-----" + LINE_SEPARATOR;
+    public static final String END_KEY        = "-----END RSA PRIVATE KEY-----";
 
     public static byte[] getDer(String combinedKeyAndCertPem, String begin, String end) {
         String[] tokens = combinedKeyAndCertPem.split(begin);

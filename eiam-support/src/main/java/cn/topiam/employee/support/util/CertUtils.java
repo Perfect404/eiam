@@ -60,11 +60,13 @@ import okhttp3.CertificatePinner;
  * Created by support@topiam.cn on  2022/5/18 23:38
  */
 public class CertUtils {
-    private static final Logger logger     = LoggerFactory.getLogger(CertUtils.class);
-    public static final String  BEGIN_CERT = "-----BEGIN CERTIFICATE-----\n";
-    public static final String  END_CERT   = "-----END CERTIFICATE-----";
-    public static final String  BEGIN_KEY  = "-----BEGIN RSA PRIVATE KEY-----\n";
-    public static final String  END_KEY    = "-----END RSA PRIVATE KEY-----";
+    private static final Logger logger         = LoggerFactory.getLogger(CertUtils.class);
+
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    public static final String  BEGIN_CERT     = "-----BEGIN CERTIFICATE-----" + LINE_SEPARATOR;
+    public static final String  END_CERT       = "-----END CERTIFICATE-----";
+    public static final String  BEGIN_KEY      = "-----BEGIN RSA PRIVATE KEY-----" + LINE_SEPARATOR;
+    public static final String  END_KEY        = "-----END RSA PRIVATE KEY-----";
     static {
         Security.addProvider(new BouncyCastleProvider());
     }
