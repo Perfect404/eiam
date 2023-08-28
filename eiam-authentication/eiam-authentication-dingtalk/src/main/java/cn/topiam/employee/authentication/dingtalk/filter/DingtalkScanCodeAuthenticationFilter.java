@@ -95,7 +95,7 @@ public class DingtalkScanCodeAuthenticationFilter extends
      */
     public DingtalkScanCodeAuthenticationFilter(IdentityProviderRepository identityProviderRepository,
                                                 UserIdpService userIdpService) {
-        super(DEFAULT_FILTER_PROCESSES_URI, userIdpService, identityProviderRepository);
+        super(REQUEST_MATCHER, userIdpService, identityProviderRepository);
     }
 
     /**

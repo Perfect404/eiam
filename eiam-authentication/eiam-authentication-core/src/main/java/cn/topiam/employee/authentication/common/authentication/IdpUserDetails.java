@@ -23,12 +23,15 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import cn.topiam.employee.authentication.common.IdentityProviderType;
 
+import lombok.Getter;
+
 /**
  * IDP用户信息
  *
  * @author TopIAM
  * Created by support@topiam.cn on  2022/9/18 21:23
  */
+@Getter
 public class IdpUserDetails {
 
     /**
@@ -84,61 +87,17 @@ public class IdpUserDetails {
     /**
      * 额外配置
      */
-    private final Map<String, String>  additionalInfo;
+    private final Map<String, Object>  additionalInfo;
 
     public static IdpUserDetailsBuilder builder() {
         return new IdpUserDetailsBuilder();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public String getStateCode() {
-        return stateCode;
-    }
-
-    public String getUnionId() {
-        return unionId;
-    }
-
-    public String getProviderId() {
-        return providerId;
-    }
-
-    public String getProviderCode() {
-        return providerCode;
-    }
-
-    public IdentityProviderType getProviderType() {
-        return providerType;
-    }
-
-    public Map<String, String> getAdditionalInfo() {
-        return additionalInfo;
     }
 
     IdpUserDetails(final String email, final String mobile, final String nickName,
                    final String avatarUrl, final String openId, final String stateCode,
                    final String unionId, final String providerId, final String providerCode,
                    final IdentityProviderType providerType,
-                   final Map<String, String> additionalInfo) {
+                   final Map<String, Object> additionalInfo) {
         if (providerId == null) {
             throw new NullPointerException("providerId is marked non-null but is null");
         } else if (providerType == null) {
@@ -181,7 +140,7 @@ public class IdpUserDetails {
 
         private IdentityProviderType providerType;
 
-        private Map<String, String>  additionalInfo;
+        private Map<String, Object>  additionalInfo;
 
         IdpUserDetailsBuilder() {
         }
@@ -248,7 +207,7 @@ public class IdpUserDetails {
             }
         }
 
-        public IdpUserDetailsBuilder additionalInfo(final Map<String, String> additionalInfo) {
+        public IdpUserDetailsBuilder additionalInfo(final Map<String, Object> additionalInfo) {
             this.additionalInfo = additionalInfo;
             return this;
         }

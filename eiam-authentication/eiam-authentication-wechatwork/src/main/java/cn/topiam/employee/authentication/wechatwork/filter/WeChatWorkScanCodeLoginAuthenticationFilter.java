@@ -50,6 +50,7 @@ import cn.topiam.employee.common.repository.authentication.IdentityProviderRepos
 import cn.topiam.employee.core.help.ServerHelp;
 import cn.topiam.employee.support.trace.TraceUtils;
 import cn.topiam.employee.support.util.HttpClientUtils;
+import cn.topiam.employee.support.util.HttpUrlUtils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -80,7 +81,7 @@ public class WeChatWorkScanCodeLoginAuthenticationFilter extends
      */
     public WeChatWorkScanCodeLoginAuthenticationFilter(IdentityProviderRepository identityProviderRepository,
                                                        UserIdpService userIdpService) {
-        super(DEFAULT_FILTER_PROCESSES_URI, userIdpService, identityProviderRepository);
+        super(REQUEST_MATCHER, userIdpService, identityProviderRepository);
     }
 
     /**
@@ -191,7 +192,7 @@ public class WeChatWorkScanCodeLoginAuthenticationFilter extends
     public static String getLoginUrl(String providerId) {
         String url = ServerHelp.getPortalPublicBaseUrl() + WECHAT_WORK_QR.getLoginPathPrefix() + "/"
                      + providerId;
-        return url.replaceAll("(?<!(http:|https:))/+", "/");
+        return HttpUrlUtils.format(url);
 
     }
 

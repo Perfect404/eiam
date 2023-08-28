@@ -35,7 +35,9 @@ export enum IDP_TYPE {
   FEISHU_OAUTH = 'feishu_oauth',
   DINGTALK_OAUTH = 'dingtalk_oauth',
   QQ_OAUTH = 'qq_oauth',
+  GITEE_OAUTH = 'gitee_oauth',
   GITHUB_OAUTH = 'github_oauth',
+  ALIPAY_OAUTH = 'alipay_oauth',
   WEIBO_OAUTH = 'weibo_oauth',
   WECHATWORK_QR = 'wechatwork_qr',
 }

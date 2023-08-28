@@ -67,7 +67,7 @@ export default (props: CreateDrawerProps) => {
       title={intl.formatMessage({
         id: 'pages.authn.identity_provider.create_modal_title',
       })}
-      width={600}
+      width={580}
       modalProps={{
         forceRender: true,
         onCancel: () => {
@@ -116,9 +116,27 @@ export default (props: CreateDrawerProps) => {
                   }),
                 },
                 {
-                  value: IdentityProviderType.qq,
+                  value: IdentityProviderType.qq_oauth,
                   label: intl.formatMessage({
                     id: 'pages.authn.identity_provider.create_modal.form.type.qq',
+                  }),
+                },
+                {
+                  value: IdentityProviderType.alipay_oauth,
+                  label: intl.formatMessage({
+                    id: 'pages.authn.identity_provider.create_modal.form.type.alipay_oauth',
+                  }),
+                },
+                {
+                  value: IdentityProviderType.github_oauth,
+                  label: intl.formatMessage({
+                    id: 'pages.authn.identity_provider.create_modal.form.type.github',
+                  }),
+                },
+                {
+                  value: IdentityProviderType.gitee_oauth,
+                  label: intl.formatMessage({
+                    id: 'pages.authn.identity_provider.create_modal.form.type.gitee',
                   }),
                 },
               ]}

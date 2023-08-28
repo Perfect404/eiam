@@ -62,6 +62,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import static cn.topiam.employee.authentication.common.IdentityProviderType.DINGTALK_OAUTH;
 import static cn.topiam.employee.authentication.common.IdentityProviderType.DINGTALK_QR;
 import static cn.topiam.employee.authentication.common.constant.AuthenticationConstants.*;
+import static cn.topiam.employee.authentication.dingtalk.constant.DingTalkAuthenticationConstants.AUTH_CODE;
 
 /**
  * 钉钉认证过滤器
@@ -89,7 +90,7 @@ public class DingtalkOauthAuthenticationFilter extends AbstractIdpAuthentication
      */
     public DingtalkOauthAuthenticationFilter(IdentityProviderRepository identityProviderRepository,
                                              UserIdpService userIdpService) {
-        super(DEFAULT_FILTER_PROCESSES_URI, userIdpService, identityProviderRepository);
+        super(REQUEST_MATCHER, userIdpService, identityProviderRepository);
     }
 
     /**
