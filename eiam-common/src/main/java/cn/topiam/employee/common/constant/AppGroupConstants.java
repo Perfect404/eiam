@@ -15,22 +15,36 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package cn.topiam.employee.common.exception;
+package cn.topiam.employee.common.constant;
 
-import org.springframework.http.HttpStatus;
-
-import cn.topiam.employee.support.exception.TopIamException;
+import static cn.topiam.employee.support.constant.EiamConstants.COLON;
+import static cn.topiam.employee.support.constant.EiamConstants.V1_API_PATH;
 
 /**
- * 消息 发送异常
+ * 分组管理常量
  *
  * @author TopIAM
- * Created by support@topiam.cn on  2022/8/7 23:03
+ * Created by support@topiam.cn on 2023/8/31 11:07
  */
-public class MessageSendException extends TopIamException {
+public final class AppGroupConstants {
 
-    public MessageSendException(Throwable throwable) {
-        super(throwable, "message_send_error", "发送短信/邮件消息失败", HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    /**
+     * 分组管理API路径
+     */
+    public final static String APP_GROUP_PATH              = V1_API_PATH + "/app_group";
 
+    /**
+     * 组名称
+     */
+    public static final String APP_GROUP_GROUP_NAME        = "分组管理";
+
+    /**
+     * 分组配置缓存前缀
+     */
+    public static final String APP_GROUP_CACHE_NAME_PREFIX = "app_group" + COLON;
+
+    /**
+     * 分组基本信息
+     */
+    public static final String APP_GROUP_CACHE_NAME        = APP_GROUP_CACHE_NAME_PREFIX + "basic";
 }
